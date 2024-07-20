@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <!-- <script src="email.js"></script> -->
+    <!-- <link rel="shortcut icon" href="images/star.png" type="favicon/ico" /> -->
+
+    <title>Aat Nu Kesar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* box-sizing:border-box; */
+        font-family: sans-serif;
+      }
+      .about-bg figure img {
+        width: 75%;
+      }
+      .carousel .carousel-item {
+        /* max-height:550px; */
+        margin-top: 20px;
+        max-height: 630px;
+      }
+
+      .carousel-item img {
+        object-fit: cover;
+      }
+
+      .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+      }
+      .carousel-control-next-icon,
+      .carousel-control-prev-icon {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      .navbar-light .navbar-nav .nav-link {
+        /* margin: 0 10px; */
+        padding: 30px 0;
+      }
+      .nav-link {
+        padding-right: 70px !important;
+      }
+      .navbar-light .navbar-brand {
+        color: rgba(0, 0, 0, 0.9);
+      }
+      .navbar-light .navbar-brand {
+        float: left;
+        height: 50px;
+        padding: 1px 1px;
+        font-size: 18px;
+        line-height: 20px;
+      }
+
+      .navbar-nav > li > a:focus,
+      .navbar-nav > li > a:hover {
+        color: green !important;
+      }
+      .navbar-nav > .active > a,
+      .navbar-nav > .active > a:focus,
+      .navbar-nav > .active > a:hover {
+        background-color: transparent;
+        color: green !important;
+      }
+      .dropdown-menu a:hover {
+        color: green !important;
+      }
+
+      .navbar-brand {
+        margin-top: -400px;
+
+        float: left;
+      }
+
+      .navbar-brand img {
+        float: left;
+
+        height: 130%;
+        width: 100%;
+      }
+      .card {
+        margin-left: 5%;
+        padding: 0px;
+      }
+
+      .button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+
+      .button1 {
+        background-color: #10a115;
+        color: black;
+        border: 2px solid white;
+      }
+
+      .button1:hover {
+        background-color: white;
+        color: #10a115;
+      }
+
+      #background {
+        background-image: linear-gradient(
+          to right,
+          rgb(0, 255, 0),
+          rgb(255, 167, 3),
+          yellow,
+          orange,
+          rgb(0, 255, 0)
+        );
+      }
+
+      .section-content-title {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        font-size: medium;
+      }
+      .row {
+        margin-right: 20px;
+        margin-left: 20px;
+      }
+
+      #footer {
+        background-color: dimgray;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider.min.js"></script>
+    <script type="text/javascript">
+      $(window).load(function () {
+        $(".flexslider").flexslider({
+          animation: "slide",
+          controlsContainer: ".flexslider-container",
+        });
+      });
+    </script>
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar">
+    <!--== 4. Navigation ==-->
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white navbar-fixed-top">
+      <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top"> -->
+
+      <a class="navbar-brand" href="#"
+        ><img src="images/newlogo.PNG" alt="" />
+        <!-- <h4 style="color:orangered">Kesar Mangoes</h4> -->
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html" style="color: Orangered"
+              >HOME</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              style="color: Orangered"
+              href="#product"
+              >PRODUCTS</a
+            >
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                class="dropdown-item"
+                href="kesar-mango.html"
+                style="color: Orangered"
+                >KESAR MANGO</a
+              >
+              <a
+                class="dropdown-item"
+                href="kesar-mango-pulp.html"
+                style="color: Orangered"
+                >KESAR MANGO PULP</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about" style="color: Orangered"
+              >ABOUT US</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="index.html#contact"
+              style="color: Orangered"
+              >CONTACT US</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br />
+    <!--== 5. Header ==-->
+    <section id="home" class="container-fluid">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="3000"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="d-block w-100"
+              src="images/mango12.jpg"
+              alt="First slide"
+              width="cover"
+            />
+            <div
+              class="carousel-caption d-flex flex-column justify-content-center h-100"
+            >
+              <!-- <h2  style="color: black;">Valsadi Kesar</h2> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              class="d-block w-100"
+              src="images/p21.jpg"
+              alt="Second slide"
+            />
+            <div
+              class="carousel-caption d-flex flex-column justify-content-center h-100"
+            >
+              <!-- <h2  style="color: black;">Organic Natural Mango</h2> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              class="d-block w-100"
+              src="images/mango14.jpg"
+              alt="third slide"
+            />
+            <div
+              class="carousel-caption d-flex flex-column justify-content-center h-100"
+            >
+              <!-- <h2  style="color: black;">Aat Nu Kesar</h2> -->
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
+
+    <!--== introduction ==-->
+    <div id="background">
+      <div class="section-header">
+        <h6 class="section-content-title text-center" style="color: orangered">
+          <b>KESAR MANGOES</b>
+        </h6>
+      </div>
+      <h4 class="justify-content" style="margin-left: 20%; margin-right: 20%">
+        <p style="font-size: 20px">
+          Our mangoes were plucked from an organically maintained orchard with
+          the world class infrastructure. The orchard is located at Aat , in the
+          Indian state of Gujarat. Aat is a small village, situated on the
+          southern-western outskirts of Navsari. The village covers an area of 7
+          square kilometres and is only 4kms from the Arabian sea, exactly at
+          20°53'1"N 72°51'34"E.
+        </p>
+
+        <p style="font-size: 20px">
+          We believe that, the Orchard maintenance, soil health and
+          intercropping plays a big role in the health of the plant. After all
+          the Queen of Mangoes requires patience and timely upkeep to get the
+          best quality of the fruit.
+        </p>
+      </h4>
+
+      <br />
+
+      <!--==  7. Afordable Pricing  ==-->
+      <section id="product" class="container-fluid">
+        <div class="section-header">
+          <h6
+            class="section-content-title text-center"
+            style="color: orangered"
+          >
+            <b>Our Products</b>
+          </h6>
+        </div>
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div
+              class="card col-lg-4 col-md-6 col-sm-12"
+              style="margin-bottom: 20px"
+              id="kesar mango"
+            >
+              <img
+                class="card-img-top"
+                src="images/i1.jpg"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5
+                  class="card-title"
+                  style="font-size: 20px; font-weight: bold"
+                >
+                  Kesar Mango
+                </h5>
+                <p class="card-text" style="font-size: 18px">
+                  The Kesar Mango, also called the Queen of Mangoes, is popular
+                  because of its sweet, bright orange pulp and exquisite taste.
+                </p>
+                <a href="kesar-mango.html" class="btn btn-success">Read More</a>
+              </div>
+            </div>
+            <div class="card col-lg-4 col-md-6 col-sm-12" id="mango pulp">
+              <img
+                class="card-img-top"
+                src="images/i2.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5
+                  class="card-title"
+                  style="font-size: 20px; font-weight: bold"
+                >
+                  Kesar Mango pulp
+                </h5>
+                <p class="card-text" style="font-size: 18px">
+                  Our Kesar mangoes are cultivated and processed implementing
+                  international standards, so that the finished mango product,
+                </p>
+                <a href="kesar-mango-pulp.html" class="btn btn-success"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <br id="about" />
+      <!---about-->
+
+      <section>
+        <span class="container-fluid">
+          <h6
+            class="section-content-title text-center"
+            style="color: orangered"
+          >
+            <b>About Us</b>
+          </h6>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6 text-center">
+                <div class="about-bg" style="margin-top: 5%">
+                  <figure><img src="images/about.jpg " alt="#" /></figure>
+                </div>
+              </div>
+              <div class="col-md-6 justify-content">
+                <div class="info">
+                  <h2 style="padding-bottom: 20px">
+                    A Global provider of Organic Kesar Mangoes
+                  </h2>
+                  <h4>
+                    <p style="font-size: 20px; padding-bottom: 5px">
+                      Our love for mangoes launched the search for real taste of
+                      mangoes. This made us develop our own Orchard to be able
+                      to grow the best organic, naturally ripened Kesar Mangoes.
+                    </p>
+                    <p style="font-size: 20px">
+                      We understand how Indians based in India, USA, Canada and
+                      other western countries aspire their mangoes to be
+                      unadulterated and organic. Aat Nu Kesar was created to
+                      share the awesome natural, organic taste of Kesar Mangoes
+                      from the south Gujarat region. Our Orchards excludes the
+                      use of weedicides, pesticides and fertilizers.
+                    </p>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+      </section>
+
+      <!---contact us---->
+
+      <section class="container-fluid">
+        <div class="container" id="contact">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div class="section-header">
+                <h6
+                  class="section-content-title text-center"
+                  style="color: orangered"
+                >
+                  <b>Contact Us</b>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <div class=" ">
+                <form
+                  id="myform"
+                  style="font-size: 16px; padding-bottom: 100px"
+                >
+                  <div
+                    class="row"
+                    style="margin-right: 20px; margin-left: 20px"
+                  >
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="name"> Name</label
+                        ><input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          placeholder="Enter name"
+                          required="required"
+                          name="name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-group">
+                          <span class="input-group-addon"
+                            ><span class="glyphicon glyphicon-envelope"></span>
+                          </span>
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="Enter email"
+                            required="required"
+                            name="email"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="subject">Subject</label
+                        ><input
+                          type="text"
+                          class="form-control"
+                          id="subject"
+                          required="required"
+                          name="subject"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="name"> Message</label>
+                        <textarea
+                          name="message"
+                          id="message"
+                          class="form-control"
+                          rows="9"
+                          cols="25"
+                          required="required"
+                          placeholder="Message"
+                          name="message"
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button
+                        class="button button1"
+                        id="btnContactUs"
+                        style="font-size: 18px"
+                      >
+                        Submit
+                      </button>
+                      <!-- <script>
+                              $("#btnContactUs").click(function() {
+                                 alert("Mail Sent successfully.");
+                              });
+                            
+                              </script>  -->
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <form style="font-size: 18px">
+                <legend><i class="fa fa-globe">Visit Us</i></legend>
+                <address>
+                  <strong>Farmicana Naturale Organics </strong><br />
+                  <p>
+                    <i class="fa fa-map-marker"></i> B12, Pancharatna, Baner
+                    Road,
+                    <br />
+                    Pune 411045 India.<br />
+                  </p>
+
+                  <i class="fa fa-phone"></i> +91 9604466584
+                </address>
+                <address>
+                  <!-- <strong>Full Name</strong><br> -->
+                  <a href="mailto:#"
+                    ><span class="glyphicon glyphicon-envelope"></span
+                    >aatnukesar@gmail.com</a
+                  >
+                  <br /><br />
+                  <i class="pad-icon">
+                    <a
+                      class="fa fa-facebook text-white"
+                      href="#"
+                      style="color: black"
+                    ></a>
+                  </i>
+                  &nbsp;&nbsp;
+                  <i class="pad-icon">
+                    <a
+                      class="fa fa-twitter text-white"
+                      href="#"
+                      style="color: black"
+                    ></a>
+                  </i>
+                  &nbsp;&nbsp;
+                  <i class="pad-icon">
+                    <a
+                      class="fa fa-instagram text-white"
+                      href="#"
+                      style="color: black"
+                    ></a>
+                  </i>
+                  &nbsp;&nbsp;
+                </address>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="copyright text-center">
+              <p style="color: aliceblue; font-size: 16px">
+                <b>&copy; Copyright, 2022 </b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
+    <script type="text/javascript" src="js/jQuery.scrollSpeed.js"></script>
+    <script src="js/script.js"></script>
+
+    <!--Send Mail-->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      (function ($) {
+        var form = $("#myform");
+
+        form.submit(function (event) {
+          event.preventDefault();
+          var req = $.ajax({
+            url: "https://emailsend-xwdejvu4hq-uc.a.run.app",
+            type: "POST",
+            data: form.serialize(),
+            headers: {
+              accept: "application/json",
+              // "Access-Control-Allow-Origin":"*"
+            },
+            crossDomain: true,
+            success: function (response) {
+              alert(
+                "Thank You for contacting us. We will reach out to you soon....!"
+              );
+            },
+            error: function (error) {
+              alert("mail not sent");
+            },
+          });
+        });
+      })(jQuery);
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyD4x6TefU-jmKCj2U4yluiow4VRCrKYBQI",
+        authDomain: "fir-71bf9.firebaseapp.com",
+        projectId: "fir-71bf9",
+        storageBucket: "fir-71bf9.appspot.com",
+        messagingSenderId: "478411025388",
+        appId: "1:478411025388:web:8d96ba6a7b4dca19df2ec9",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

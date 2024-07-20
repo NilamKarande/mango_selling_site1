@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "deploy": "dev-5bc9b",
+    "default": "dev-5bc9b"
+  },
+  "targets": {},
+  "etags": {}
+}
