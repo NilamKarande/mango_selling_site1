@@ -1,7 +1,7 @@
 {
   "projects": {
-    "deploy": "dev-5bc9b",
-    "default": "dev-5bc9b"
+    "deploy": "mango-selling-website",
+    "default": "mango-selling-website"
   },
   "targets": {},
   "etags": {}
